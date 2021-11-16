@@ -23,4 +23,4 @@ paths:
                 type: string
             required:
               - message
-            example: hello
+            example: {"message":"Hello World!"}
