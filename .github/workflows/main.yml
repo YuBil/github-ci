@@ -44,5 +44,5 @@ jobs:
         run: node index.js &
 
       - name: Run dredd
-      - run: |
+        run: |
           docker run --rm -v ${PWD}:/api -w /api apiaryio/dredd dredd dredd/api.yml http://localhost:3000
