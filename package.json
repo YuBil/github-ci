@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@apielements/openapi3-parser": "^0.16.1",
+    "express": "^4.17.1",
+    "fury": "^3.0.0-beta.14"
   }
 }
