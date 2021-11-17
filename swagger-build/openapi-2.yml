@@ -5,11 +5,11 @@ info:
   license:
     name: MIT
 host: localhost
-basePath: /
+basePath: /v1
 schemes:
   - http
 paths:
-  /:
+  /foo:
     get:
       produces:
         - application/json; charset=utf-8
