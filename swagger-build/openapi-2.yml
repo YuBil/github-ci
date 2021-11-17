@@ -2,8 +2,6 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Example API
-  license:
-    name: MIT
 host: localhost
 basePath: /v1
 schemes:
@@ -21,6 +19,6 @@ paths:
             properties:
               message:
                 type: string
+                example: foo
             required:
               - message
-            example: {"message":"Hello World!"}

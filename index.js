@@ -1,9 +1,11 @@
-var app = require('express')();
+const app = require('express')()
+
+const msg = {
+  message: 'foo'
+}
 
 app.get('/v1/foo', function(req, res) {
-  res.statusCode = 200;
-  res.contentType = 'application/json';
-  res.json({message: 'Hello World!'});
+  res.json(msg);
 })
 
-app.listen(3000);
+app.listen(3000)

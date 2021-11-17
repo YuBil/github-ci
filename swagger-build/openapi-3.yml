@@ -17,6 +17,7 @@ paths:
             application/json; charset=utf-8:
               schema:
                 type: object
-                items:
-                  type: string
-                example: {"message":"Hello World!"}
+                properties:
+                  message:
+                    type: string
+                    example: foo
