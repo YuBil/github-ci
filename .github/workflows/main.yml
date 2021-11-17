@@ -52,5 +52,3 @@ jobs:
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
             dredd swagger-build/openapi-3-parsed.yml http://localhost:3000
-
-      -
