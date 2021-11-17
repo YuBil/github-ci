@@ -45,4 +45,4 @@ jobs:
 
       - name: Run dredd
         run: |
-          docker run --rm -v ${PWD}:/api -w /api apiaryio/dredd dredd dredd/api.yml http://localhost:3000
+          docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd dredd dredd/api.yml http://localhost:3000
