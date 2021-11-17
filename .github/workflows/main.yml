@@ -32,12 +32,12 @@ jobs:
       - name: Run APP with endpoint
         run: node index.js &
 
-      - name: openapi-2 Run Dredd
+      - name: openapi-2 *** Run Dredd
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
             dredd swagger-build/openapi-2.yml http://localhost:3000
 
-      - name: [openapi-3] Run Dredd for OA-3 sample with syntax compatible with OA-2
+      - name: openapi-3 *** Run Dredd for OA-3 sample with syntax compatible with OA-2
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
             dredd swagger-build/openapi-3.yml http://localhost:3000
@@ -48,7 +48,7 @@ jobs:
           node_modules/.bin/api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
             swagger-build/openapi-3-oneOf.yml > swagger-build/openapi-3-parsed.yml
 
-      - name: [openapi-3 => openapi-2] Run Dredd for parsed file
+      - name: openapi-3 => openapi-2 *** Run Dredd for parsed file
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
             dredd swagger-build/openapi-3-parsed.yml http://localhost:3000
