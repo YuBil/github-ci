@@ -56,7 +56,7 @@ jobs:
       - name: Install parser 3 => 2
         run: |
           npm install --save api-spec-converter
-          api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
+          node_modules/.bin/api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
             swagger-build/openapi-3.yml > swagger-build/openapi-3-parsed.yml
 
       - name: Run dredd for openapi-3 PARSED
