@@ -20,5 +20,7 @@ paths:
               message:
                 type: string
                 example: foo
+#              message1:       # disable this line for working CI
+#                type: string  # disable this line for working CI
             required:
               - message

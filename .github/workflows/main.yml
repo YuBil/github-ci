@@ -45,8 +45,9 @@ jobs:
       - name: Install & run parser openapi-3 => openapi-2 (schema has broken compatibility elements)
         run: |
           npm install --save api-spec-converter
-          node_modules/.bin/api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
-            swagger-build/openapi-3-oneOf.yml > swagger-build/openapi-3-parsed.yml
+          node_modules/.bin/api-spec-converter \
+            --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
+            swagger-build/openapi-3-new.yml > swagger-build/openapi-3-parsed.yml
 
       - name: openapi-3 => openapi-2 *** Run Dredd for parsed file
         run: |

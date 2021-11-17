@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: Sample API for Dredd
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000
+    description: Server localhost
+paths:
+  /v1/foo:
+    get:
+      summary: Returns greeting.
+      description: Returns greeting description.
+      responses:
+        '200':    # status code
+          description: A JSON containing greeting
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: object
+                properties:
+                  message:
+                    oneOf: # new feature OA-3 (2)
+                      - type: object
+                      - type: string
+                  message1:
+                    type: string
+                    nullable: false # new feature OA-3 (1)
+
+# https://blog.stoplight.io/difference-between-open-v2-v3-v31
+# (1) Neither OpenAPI 2.0 nor 3.0 support null as a type, but JSON Schema does support type null. OpenAPI 3.0 includes the field name nullable ...
+# (2) In previous versions of OpenAPI, type could only be a single string. But in JSON Schema, type can be an array of strings.
+# There is no workaround for this in version 2.0, but in version 3.0, you can select multiple types using oneOf ...
