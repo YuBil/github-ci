@@ -32,7 +32,7 @@ jobs:
       - name: Run APP with endpoint
         run: node index.js &
 
-      - name: [openapi-2] Run Dredd
+      - name: openapi-2 Run Dredd
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
             dredd swagger-build/openapi-2.yml http://localhost:3000
