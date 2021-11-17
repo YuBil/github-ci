@@ -46,9 +46,20 @@ jobs:
       - name: Run dredd for openapi-2
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
-          dredd swagger-build/openapi-2.yml http://localhost:3000
+            dredd swagger-build/openapi-2.yml http://localhost:3000
 
-      - name: Run dredd for openapi-3
+      - name: Run dredd for openapi-3 raw
         run: |
           docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
-          dredd swagger-build/openapi-3.yml http://localhost:3000
+            dredd swagger-build/openapi-3.yml http://localhost:3000
+
+      - name: Install parser 3 => 2
+        run: |
+          npm install --save api-spec-converter
+          api-spec-converter --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
+            swagger-build/openapi-3.yml > swagger-build/openapi-3-parsed.yml
+
+      - name: Run dredd for openapi-3 PARSED
+        run: |
+          docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
+            dredd swagger-build/openapi-3-parsed.yml http://localhost:3000
