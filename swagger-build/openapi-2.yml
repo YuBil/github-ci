@@ -9,11 +9,16 @@ schemes:
 paths:
   /foo:
     get:
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+          default: Bearer tuwnVFNKyqgo
       produces:
         - application/json; charset=utf-8
       responses:
         '200':
-          description: ''
+          description: 'Sample GET request'
           schema:
             type: object
             properties:
@@ -24,3 +29,24 @@ paths:
 #                type: string  # disable this line for working CI
             required:
               - message
+  /bar:
+    get:
+      parameters:
+        - in: query
+          name: id
+          type: integer
+        - in: header
+          name: Authorization
+          type: string
+          default: Bearer tuwnVFNKyqgo
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        '200':
+          description: 'Endpoint with query param'
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 100500

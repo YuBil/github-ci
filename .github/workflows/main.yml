@@ -49,7 +49,7 @@ jobs:
             --from=openapi_3 --to=swagger_2 --syntax=yaml --order=alpha \
             swagger-build/openapi-3-new.yml > swagger-build/openapi-3-parsed.yml
 
-      - name: openapi-3 => openapi-2 *** Run Dredd for parsed file
-        run: |
-          docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
-            dredd swagger-build/openapi-3-parsed.yml http://localhost:3000
+#      - name: openapi-3 => openapi-2 *** Run Dredd for parsed file
+#        run: |
+#          docker run --rm -v ${PWD}:/api -w /api --network host apiaryio/dredd \
+#            dredd swagger-build/openapi-3-parsed.yml http://localhost:3000
